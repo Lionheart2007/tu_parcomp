@@ -1,0 +1,27 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -Iutil
+
+# Directories
+SRCDIRS := $(shell find code_examples -type d)
+
+# Source files
+UTILSRC := util/util.c
+STENCILSRC := $(wildcard code_examples/*/stencil.c)
+
+# Object files
+UTILOBJECTS := $(UTILSRC:.c=.o)
+STENCILOBJECTS := $(STENCILSRC:.c=.o)
+
+# Executables
+STENCILBINARIES := $(STENCILOBJECTS:.o=)
+
+all: $(STENCILBINARIES)
+
+$(STENCILBINARIES): $(STENCILSRC) $(UTILOBJECTS)
+	$(CC) $(CFLAGS) $@.c $(UTILOBJECTS) -o $@
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(UTILOBJECTS) $(STENCILOBJECTS) $(STENCILBINARIES)
