@@ -48,6 +48,16 @@ void printArray(int length, double arr[length]) {
     printf("]\n");
 }
 
+void printArrayInt(int length, int arr[length]) {
+    printf("[");
+    for(int i = 0; i<length; i++) {
+        printf("%i", arr[i]);
+        
+        if (i != length-1) printf(",");
+    }
+    printf("]\n");
+}
+
 void zeroArray(int length, double arr[length]) {
     for(int i = 0; i<length; i++) {
         arr[i] = 0;
