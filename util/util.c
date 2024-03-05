@@ -37,3 +37,25 @@ void zeroMatrix(int rows, int cols, double matrix[rows][cols]) {
         }
     }
 }
+
+void printArray(int length, double arr[length]) {
+    printf("[");
+    for(int i = 0; i<length; i++) {
+        printf("%f", arr[i]);
+        
+        if (i != length-1) printf(",");
+    }
+    printf("]\n");
+}
+
+void zeroArray(int length, double arr[length]) {
+    for(int i = 0; i<length; i++) {
+        arr[i] = 0;
+    }
+}
+
+void fillRandomArray(int length, double arr[length]) {
+    for(int i = 0; i<length; i++) {
+        arr[i] = (int) rand() % 20;
+    }
+}
