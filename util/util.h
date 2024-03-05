@@ -1,6 +1,17 @@
 #ifndef UTIL_H
 #define UTIL_H
 
+#define max(a, b) \
+    ({ __typeof__ (a) _a = (a); \
+    __typeof__ (b) _b = (b); \
+    _a > _b ? _a : _b; })
+
+#define min(a, b) \
+    ({ __typeof__ (a) _a = (a); \
+    __typeof__ (b) _b = (b); \
+    _a < _b ? _a : _b; })
+
+
 void printMatrix(int rows, int cols, double matrix[rows][cols]);
 void fillRandomMatrix(int rows, int cols, double matrix[rows][cols]);
 void zeroMatrix(int rows, int cols, double matrix[rows][cols]);
