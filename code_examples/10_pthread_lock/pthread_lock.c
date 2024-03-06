@@ -1,4 +1,4 @@
-// Page 101
+// Page 110
 
 #include <pthread.h>
 #include <stdlib.h>
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        printf("Usage: pthreads p\n");
+        printf("Usage: pthreads_lock p\n");
         exit(1);
     }
 
