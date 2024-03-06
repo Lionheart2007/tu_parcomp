@@ -14,6 +14,7 @@
 
 void printMatrix(int rows, int cols, double matrix[rows][cols]);
 void fillRandomMatrix(int rows, int cols, double matrix[rows][cols]);
+void fillMatrixRandom(int rows, int cols, double matrix[rows][cols]);
 void zeroMatrix(int rows, int cols, double matrix[rows][cols]);
 void printArray(int length, double arr[length]);
 void printArrayInt(int length, int arr[length]);
