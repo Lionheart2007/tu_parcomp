@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Iutil
+CFLAGS = -Wall -fopenmp -Wextra -Iutil
 
 # Directories
 SRCDIRS := $(shell find code_examples -type d)
