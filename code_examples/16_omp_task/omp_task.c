@@ -1,4 +1,4 @@
-// Page 135
+// Page 131
 // REMARK sorry, unimplemented: ‘inscan’ modifier on ‘reduction’ clause not supported yet
 // requires update of compiler
 

@@ -100,8 +100,13 @@ void fillRandomArray(int length, double arr[length])
 
 void fillRandomArrayInt(int length, int arr[length])
 {
+    fillRandomArrayIntMax(length, arr, 20);
+}
+
+void fillRandomArrayIntMax(int length, int arr[length], int max)
+{
     for (int i = 0; i < length; i++)
     {
-        arr[i] = (int)rand() % 20;
+        arr[i] = (int)rand() % max;
     }
 }

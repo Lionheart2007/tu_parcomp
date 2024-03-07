@@ -20,4 +20,6 @@ void printArrayInt(int length, int arr[length]);
 void zeroArray(int length, double arr[length]);
 void fillRandomArray(int length, double arr[length]);
 void fillRandomArrayInt(int length, int arr[length]);
+void fillRandomArrayIntMax(int length, int arr[length], int max);
+
 #endif
