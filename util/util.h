@@ -11,7 +11,6 @@
     __typeof__ (b) _b = (b); \
     _a < _b ? _a : _b; })
 
-
 void printMatrix(int rows, int cols, double matrix[rows][cols]);
 void fillRandomMatrix(int rows, int cols, double matrix[rows][cols]);
 void fillMatrixRandom(int rows, int cols, double matrix[rows][cols]);
@@ -20,4 +19,5 @@ void printArray(int length, double arr[length]);
 void printArrayInt(int length, int arr[length]);
 void zeroArray(int length, double arr[length]);
 void fillRandomArray(int length, double arr[length]);
+void fillRandomArrayInt(int length, int arr[length]);
 #endif
