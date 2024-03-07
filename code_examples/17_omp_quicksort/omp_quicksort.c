@@ -69,6 +69,6 @@ int main(int argc, char *argv[])
     double stop = omp_get_wtime();
 
     // printf("a: ");
-    //  printArrayInt(n, a);
+    // printArrayInt(n, a);
     printf("time: %f\n", stop - start);
 }
