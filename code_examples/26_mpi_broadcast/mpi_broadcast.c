@@ -1,4 +1,4 @@
-// Page 193
+// Page 194
 
 #define TAG 1000
 #include <stdio.h>
@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     if (argc != 2)
     {
-        printf("usage: mpi_send_recv length\n");
+        printf("usage: mpi_ring length\n");
         exit(1);
     }
 
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     MPI_Comm_rank(comm, &rank);
     MPI_Comm_size(comm, &size);
 
-    printf("rank: %i size: %i\n", rank, size);
+    printf("rank in: %i ", rank);
 
     assert(size > 1);
     int *buffer = (int *)malloc(sizeof(int) * length);
@@ -44,21 +44,22 @@ int main(int argc, char *argv[])
 
     if (rank == root)
     {
-        MPI_Send(buffer, count, MPI_INT, (rank + 1) % size, TAG, comm);
-    }
-    else if (rank == (root - 1 + size) % size)
-    {
-        MPI_Status status;
-        MPI_Recv(buffer, count, MPI_INT, (rank - 1 + size) % size, TAG,
-                 comm, &status);
+        int i;
+        for (i = 0; i < size; i++)
+        {
+            if (i == root)
+                continue;
+            MPI_Send(buffer, count, MPI_INT, i, TAG, comm);
+        }
     }
     else
     {
-        MPI_Status status;
-        MPI_Recv(buffer, count, MPI_INT, (rank - 1 + size) % size, TAG,
-                 comm, &status);
-        MPI_Send(buffer, count, MPI_INT, (rank + 1) % size, TAG, comm);
+        MPI_Recv(buffer, count, MPI_INT, root, TAG, comm, MPI_STATUS_IGNORE);
     }
 
+    printf("rank out: %i ", rank);
+
     printArrayInt(length, buffer);
+
+    MPI_Finalize();
 }
