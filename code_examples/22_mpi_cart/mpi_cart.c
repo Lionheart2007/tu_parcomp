@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
     }
 
     MPI_Comm comm;
-    int result;
     MPI_Init(&argc, &argv);
     comm = MPI_COMM_WORLD;
 
@@ -29,7 +28,7 @@ int main(int argc, char *argv[])
         int dims[d], periods[d];
         int coords[d];
         MPI_Comm cartcomm;
-        int rank, size;
+        int rank;
         int r, dd, i;
         for (i = 0; i < d; i++)
             dims[i] = 0;
@@ -49,7 +48,7 @@ int main(int argc, char *argv[])
         }
         assert(r == rank);
         MPI_Comm_free(&cartcomm);
-
-        return 0;
     }
+
+    return 0;
 }
