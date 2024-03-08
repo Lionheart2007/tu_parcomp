@@ -41,5 +41,6 @@ int main(int argc, char *argv[])
             assert(r == rank - 1);
     }
     MPI_Group_free(&group);
+    MPI_Finalize();
     return 0;
 }

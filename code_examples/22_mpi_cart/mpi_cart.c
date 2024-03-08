@@ -50,5 +50,6 @@ int main(int argc, char *argv[])
         MPI_Comm_free(&cartcomm);
     }
 
+    MPI_Finalize();
     return 0;
 }
