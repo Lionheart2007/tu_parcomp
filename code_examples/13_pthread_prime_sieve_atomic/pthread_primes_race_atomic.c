@@ -1,9 +1,4 @@
 // Page 116
-// REMARK is it really instructive in any way to look at the thread local found?
-// Knowing whether the primes a thread reports are in any way off would require that
-// I know how many it should report. Which I don't. Neither do I know which numbers it looked at,
-// nor how many primes are among the numbers I looked at. The only thing I can do is to sum the found counts and to check,
-// but that is bothresome and also requires googling (how much the sum should be).
 
 #include <pthread.h>
 #include <stdlib.h>

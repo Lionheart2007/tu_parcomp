@@ -1,5 +1,5 @@
 // Page 220
-// REMARK The matrix allocation code on page 219 is incorrect
+// REMARK The matrix allocation code on page 219 is incorrect: No matrix for freeing!
 
 #define STENTAG 11
 

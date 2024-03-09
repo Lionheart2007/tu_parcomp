@@ -1,5 +1,4 @@
 // Page 197
-// REMARK I'm leaving out 198, 200 since they are the same (and for 200: not supposed to run)
 
 #define TAG0 500
 #define TAG1 501

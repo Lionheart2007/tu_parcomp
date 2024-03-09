@@ -1,6 +1,4 @@
 // Page 143
-// REMARK sorry, unimplemented: ‘inscan’ modifier on ‘reduction’ clause not supported yet
-// requires update of compiler
 
 #include <stdlib.h>
 #include <stdio.h>
