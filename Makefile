@@ -21,7 +21,7 @@ $(STENCILBINARIES): $(STENCILSRC) $(UTILOBJECTS)
 	$(CC) $(CFLAGS) $@.c $(UTILOBJECTS) -o $@.exe
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	mpicc $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(UTILOBJECTS) $(STENCILOBJECTS) $(STENCILBINARIES)
