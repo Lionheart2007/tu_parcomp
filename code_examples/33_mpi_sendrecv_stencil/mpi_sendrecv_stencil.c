@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     if (argc != 2)
     {
-        printf("usage: mpi_safe_stencil n\n");
+        printf("usage: mpi_sendrecv_stencil n\n");
         exit(1);
     }
 
@@ -70,18 +70,20 @@ int main(int argc, char *argv[])
     }
 
     int done = 0;
-    MPI_Request request[8];
     while (!done)
     { // iterate until convergence
-        MPI_Isend(out_left, n, MPI_DOUBLE, left, STENTAG, cartcomm, &request[0]);
-        MPI_Isend(out_right, n, MPI_DOUBLE, right, STENTAG, cartcomm, &request[1]);
-        MPI_Isend(out_up, n, MPI_DOUBLE, up, STENTAG, cartcomm, &request[2]);
-        MPI_Isend(out_down, n, MPI_DOUBLE, down, STENTAG, cartcomm, &request[3]);
-        MPI_Irecv(in_left, n, MPI_DOUBLE, left, STENTAG, cartcomm, &request[4]);
-        MPI_Irecv(in_right, n, MPI_DOUBLE, right, STENTAG, cartcomm, &request[5]);
-        MPI_Irecv(in_up, n, MPI_DOUBLE, up, STENTAG, cartcomm, &request[6]);
-        MPI_Irecv(in_down, n, MPI_DOUBLE, down, STENTAG, cartcomm, &request[7]);
-        MPI_Waitall(8, request, MPI_STATUSES_IGNORE);
+        MPI_Sendrecv(out_left, n, MPI_DOUBLE, left, STENTAG,
+                     in_right, n, MPI_DOUBLE, right, STENTAG,
+                     cartcomm, MPI_STATUS_IGNORE);
+        MPI_Sendrecv(out_right, n, MPI_DOUBLE, right, STENTAG,
+                     in_left, n, MPI_DOUBLE, left, STENTAG,
+                     cartcomm, MPI_STATUS_IGNORE);
+        MPI_Sendrecv(out_up, n, MPI_DOUBLE, up, STENTAG,
+                     in_down, n, MPI_DOUBLE, down, STENTAG,
+                     cartcomm, MPI_STATUS_IGNORE);
+        MPI_Sendrecv(out_down, n, MPI_DOUBLE, down, STENTAG,
+                     in_up, n, MPI_DOUBLE, up, STENTAG,
+                     cartcomm, MPI_STATUS_IGNORE);
         done = 1; // some termination criterion
     }
 
