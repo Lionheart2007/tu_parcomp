@@ -16,5 +16,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
+    printf("Silencing annoying compiler warning by %s", argv[0]);
+
     return 0;
 }
