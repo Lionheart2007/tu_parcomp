@@ -75,16 +75,11 @@ int main(int argc, char *argv[])
     MPI_Type_vector(m, 1, n + 2, MPI_DOUBLE, &column);
     MPI_Type_commit(&column);
     double *out_left, *out_right, *out_up, *out_down;
-    double *in_left, *in_right, *in_up, *in_down;
 
     out_left = &matrix[0][0];
     out_right = &matrix[0][n - 1];
     out_up = &matrix[0][0];
     out_down = &matrix[m - 1][0];
-    in_left = &matrix[0][-1];
-    in_right = &matrix[0][n];
-    in_up = &matrix[-1][0];
-    in_down = &matrix[m][0];
 
     printf("Rank %i sending to rank %i ", rank, left);
     printArray(n, out_left);
