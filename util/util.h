@@ -12,6 +12,7 @@
     _a < _b ? _a : _b; })
 
 void printMatrix(int rows, int cols, double matrix[rows][cols]);
+void printMatrixInt(int rows, int cols, int matrix[rows][cols]);
 void fillRandomMatrix(int rows, int cols, double matrix[rows][cols]);
 void fillMatrixRandom(int rows, int cols, double matrix[rows][cols]);
 void zeroMatrix(int rows, int cols, double matrix[rows][cols]);

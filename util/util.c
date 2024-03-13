@@ -17,6 +17,19 @@ void printMatrix(int rows, int cols, double matrix[rows][cols])
     }
 }
 
+void printMatrixInt(int rows, int cols, int matrix[rows][cols])
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            // printf("%i %i %f\n", i, j, matrix[i][j]);
+            printf("%i\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 void fillMatrixRandom(int rows, int cols, double matrix[rows][cols])
 {
     for (int i = 0; i < rows; i++)
